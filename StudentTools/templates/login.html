@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+    {% if form.errors %}
+    <p class="error">Sorry. That's not a valid username or password </p>
+    {% endif %}
+<!-- 
+    <form action="/degreeplan/auth/" method="post">{% csrf_token %}
+        <label for="username">Username: </label>
+        <input type="text" name="username" value="" id="username" />
+        <label for="password">Password: </label>
+        <input type="password" name="password" value="" id="password" />
+        <input type="submit" value="login" />
+    </form> -->
+   
+    <h2>Login to Your Degree Planner</h2><br/>
+    <form role="form" action="/degreeplan/auth/" method="post">{% csrf_token %}
+        <div class="form-group">
+        <label for="username">Username: </label>
+        <input input type="text" name="username" value="" id="username" class="form-control" placeholder="Enter username">
+        </div>
+
+        <div class="form-group">
+        <label for="password">Password: </label>
+        <input type="password" name="password" value="" id="password" class="form-control" placeholder="Enter password">
+        </div>
+
+    <input type="submit" value="Login" class="btn btn-success">
+    
+    </form>
+
+
+</div>
+<div class="col-sm-3"></div>
+{% endblock content %}

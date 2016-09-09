@@ -1,0 +1,80 @@
+<!--DOCTYPE html -->
+<html>
+<head>
+{% load static %}
+<title>{% block head_title %}Degree Planner{% endblock head_title %}</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="{% static 'js/base.js' %}"></script>  
+      <script src="{% static 'js/js.cookie.js' %}"></script>
+
+
+  {% block style_format %} {% endblock style_format %}
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/degreeplan/">Degree Planner</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/degreeplan/">Home</a></li>
+      <li><a href="/degreeplan/all_courses">All courses</a></li>
+      <li><a href="/degreeplan/program_of_study">Program of Study</a></li>
+      <li><a href="/degreeplan/contact_us">Contact Us</a></li>
+    </ul>
+
+
+{% block navbar_right %}
+{% if current_user.is_authenticated %}
+
+  <ul class="nav navbar-nav navbar-right">
+  <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome, {{ current_user.first_name }}
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/degreeplan/myprofile">Your Profile</a></li>
+          <li><a href="/degreeplan/transcript">Your Transcript</a></li>
+          <li><a href="/degreeplan/cs_bscourses/">Your Degree's Requirement</a></li>
+          <li><a href="/degreeplan/folder">Your Folder</a></li>
+          <li><a href="/degreeplan/degreeplanner">Your Degree Planner</a></li>
+          <li><a href="/degreeplan/logout">Not {{ current_user.first_name }}? Sign out</a></li>
+        </ul>
+    </li>
+  </ul>
+  </div>
+</nav>
+
+{% else %}
+
+  <ul class="nav navbar-nav navbar-right">
+      <li><a href="/degreeplan/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="/degreeplan/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+  </ul>
+  </div>
+</nav>
+
+{% endif%}
+{% endblock navbar_right %}
+
+
+{% block content %}  
+<div class="container">
+
+  <h3>Welcome to Degree Planner</h3>
+  <p>Degree Planner eases your degree planning process by helping you navigate to the right courses that fit your career and/or subject interests, optimize your academic performance, and complete your degree on time.</p>
+</div> 
+
+{% endblock content %}  
+
+
+
+{% block script %} {% endblock script %}
+</body>
+</html>

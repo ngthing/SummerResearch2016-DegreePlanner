@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+   <h2> Hi {{current_user.first_name}}. You are logged in! </h2>
+   <p>Click <a href="/degreeplan/myprofile"> here</a> to view your profile.</p>
+   <p>Click <a href="/degreeplan/logout"> here</a> to logout </p>
+</div>
+{% endblock content %}

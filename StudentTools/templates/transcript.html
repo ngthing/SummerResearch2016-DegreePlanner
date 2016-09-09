@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+{% if transcript_added %}
+<p> Update your transcript data <a href="/degreeplan/get_transcript">here</a></p>
+  <h2>{{current_user.first_name}} {{current_user.last_name}}'s Transcript</h2>
+ 
+
+	<div class="table-responsive">
+	<table class="table">
+	<thead>
+	<tr>
+        <th>Year</th>
+        <th>Semester</th>
+		<th>Course</th>
+        <th>Credits</th>
+		<th>Grade</th>
+		
+	</tr>
+	</thead>
+    
+    <tbody>
+    {% for y, ey in takencourses_ordered_by_year.items %}
+    <tr> 
+    <td>{{y}}</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+    {% for e in ey %}
+    	{% if e.semester == "Spring" %}
+   	<tr> 
+    <td></td>
+    <td>{{ e.semester }}</td>
+   	<td>{{ e.course_id }}</td>
+    <td>{{ e.course_id.credits }}</td>
+    <td>{{ e.grade }}</td>
+    </tr>
+    	{% endif %}
+    {% endfor %}
+   
+   	{% for e in ey %}
+    	{% if e.semester == "Summer"%}
+    <tr>
+    <td></td>
+    <td>{{ e.semester }}</td>
+    <td>{{ e.course_id }}</td>
+    <td>{{ e.course_id.credits }}</td>
+    <td>{{ e.grade }}</td>
+    
+    </tr>
+    	{% endif %}
+    {% endfor %}
+
+    {% for e in ey %}
+    	{% if e.semester == "Fall"%}
+   	<tr>
+    <td></td>	
+    <td>{{ e.semester }}</td>
+    <td>{{ e.course_id }}</td>
+    <td>{{ e.course_id.credits }}</td>
+    <td>{{ e.grade }}</td>
+   
+    </tr>
+    	{% endif %}
+    {% endfor %}
+   
+    {% endfor %}
+ </tbody>
+</table>
+
+</div>
+ 
+
+
+{% else %}
+<p> Take a moment to provide your transcript data <a href="/degreeplan/get_transcript">here</a></p>
+{% endif %}
+</div>
+{% endblock content %}

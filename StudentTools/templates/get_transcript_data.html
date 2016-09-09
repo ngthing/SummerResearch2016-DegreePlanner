@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+<h3>Hi {{current_user.first_name}} {{current_user.last_name}}!</h3>
+<p> Please take a moment to submit your transcript data below: </p><br/>
+
+    <form class="tr" id="enroll_form" method="post" action="/degreeplan/get_transcript/" enctype="multipart/form-data"> {% csrf_token %}
+       {{ enroll_form.as_p}}
+   
+     
+    <input type="submit" name="submit" value="Save" />
+      
+    </form>
+</div>
+{% endblock content %}

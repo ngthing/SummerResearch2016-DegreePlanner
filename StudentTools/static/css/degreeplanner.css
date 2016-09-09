@@ -1,0 +1,14 @@
+dt {
+    color: green;
+}
+
+.well{
+	padding:0px 0px 5px 0px;
+	margin: 2px;
+	height: 40px;
+	text-align:center
+}
+
+#future_course{
+	background-color: lightblue;
+}

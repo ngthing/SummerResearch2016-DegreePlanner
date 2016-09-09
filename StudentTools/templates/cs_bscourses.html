@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid text-left">
+<div class="row content">
+<div class="col-sm-1 sidenav">
+</div>
+
+
+
+<div class="col-sm-8 text-left">
+
+<h2>Computer Science, BS </h2>
+<p>Degree Requirements</p>
+<table class="table table-hover">
+	<thead>
+		<tr>
+		<th>Course</th>
+		<th>Credit</th>
+		<th>Status</th>
+		</tr>
+	</thead>
+{% for c in courses %}
+	<tbody>
+		<tr>
+		<td><a href="#{{c.cid}}" data-toggle="collapse">{{c.course_id}} {{ c.title }}</a>
+		<div id="{{c.cid}}" class="collapse">
+			<div class="panel-group" id="accordion">
+			<div class="panel panel-default">
+			<div class="panel-heading">
+			<h5 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#{{c.cid}}about">
+			About This Course</a>
+			</h5>
+			</div>
+			<div id="{{c.cid}}about" class="panel-collapse collapse in">
+			<div class="panel-body">
+			<strong>Description:</strong> {{c.description}}<br/>
+			<strong>Status:</strong> {{c.status}}<br/>
+			<strong>Prerequisite:</strong> {{c.prerequisite}}<br/>
+			<strong>Corequisite:</strong> {{c.corequisite}}
+			</div>
+			</div>
+			</div>
+			<div class="panel panel-default">
+			<div class="panel-heading">
+			<h5 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#{{c.cid}}rel-topics">
+			Relevant Topics</a>
+			</h5>
+			</div>
+			<div id="{{c.cid}}rel-topics" class="panel-collapse collapse">
+			<div class="panel-body">
+			{{c.related_topics}}
+			</div>
+			</div>
+			</div>
+			<div class="panel panel-default">
+			<div class="panel-heading">
+			<h5 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#{{c.cid}}rel-careers">
+			Relevant Careers</a>
+			</h5>
+			</div>
+			<div id="{{c.cid}}rel-careers" class="panel-collapse collapse">
+			<div class="panel-body"> </div>
+			</div>
+			</div>
+			</div>
+			</div>
+		</td>
+		<td>{{c.credits}}</td>
+		<td>{% if c.cid in taken_cids %}<span style="color:green"><strong>Taken </strong></span>
+		{% elif c.cid in added_cids %}In Folder
+		{% else %}
+		<div id= "{{c.cid}}addToFolder">
+		<button id="add" class="btn btn-primary" this-course-id ="{{c.cid}}" data-toggle="tooltip" data-placement="top" title="Add to folder"><span id="addSign" class="glyphicon glyphicon-plus"></span></button>
+		</div>
+		{% endif %}</td>
+		
+		
+		</tr>
+	</tbody>
+{% endfor %}
+</table>
+</div>
+<!-- <div class="col-sm- sidenav"></div> -->
+<div class="col-sm-3 sidenav">
+<br/> <br/> <br/> 
+	<h3>Quick look</h3>
+	<p><strong>Completed: </strong><br/>
+	4/40 courses<br/>
+	12/120 credits<br/>
+	4 courses in CS core<br/>
+	0 courses in Mason core<br/>
+
+
+	</p>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}
+{% load static %}
+{% block script %} 
+ <script src="{% static 'js/cs_bscourses.js' %}"></script>  
+{% endblock script %}

@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid text-left">
+<div class="row content">
+<div class="col-sm-2 sidenav">
+	</div>
+
+
+<div class="col-sm-9 text-left">
+
+<h2>{{current_user.first_name}} {{current_user.last_name}}'s Folder</h2>
+{% if folder_empty %}
+<p> No course in folder</p>
+{% else %}
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+		<th>Course</th>
+		<th></th>
+		<th></th>
+		<th></th>
+		</tr>
+	</thead>
+{% for addedc in added_courses %}
+	<tbody>
+		<div id="{{addedc.course_id.cid}}row">
+		<tr>
+		<td><a href="#{{addedc.course_id.cid}}info" data-toggle="collapse">{{addedc.course_id}}</a>
+
+		<div id="{{addedc.course_id.cid}}info" class="collapse">
+			<div class="panel-group" id="accordion">
+			<div class="panel panel-default">
+			<div class="panel-heading">
+			<h5 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#{{addedc.course_id.cid}}about">
+			About This Course</a>
+			</h5>
+			</div>
+			<div id="{{addedc.course_id.cid}}about" class="panel-collapse collapse in">
+			<div class="panel-body">
+			<strong>Credit:</strong> {{addedc.course_id.credits}}<br/>
+			<strong>Description:</strong> {{addedc.course_id.description}}<br/>
+			<strong>Prerequisite:</strong> {{addedc.course_id.prerequisite}}<br/>
+			<strong>Corequisite:</strong> {{addedc.course_id.corequisite}}
+			</div>
+			</div>
+			</div>
+			<div class="panel panel-default">
+			<div class="panel-heading">
+			<h5 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#{{addedc.course_id.cid}}rel-topics">
+			Relevant Topics</a>
+			</h5>
+			</div>
+			<div id="{{addedc.course_id.cid}}rel-topics" class="panel-collapse collapse">
+			<div class="panel-body"> </div>
+			</div>
+			</div>
+			<div class="panel panel-default">
+			<div class="panel-heading">
+			<h5 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#{{addedc.course_id.cid}}rel-careers">
+			Relevant Careers</a>
+			</h5>
+			</div>
+			<div id="{{addedc.course_id.cid}}rel-careers" class="panel-collapse collapse">
+			<div class="panel-body"> </div>
+			</div>
+			</div>
+			</div>
+		</div>
+
+		<div id="{{addedc.course_id.cid}}eval" class="collapse">
+			<div class="panel-group" id="accordion">
+			<div class="panel panel-default">
+			<div class="panel-heading">
+			<h5 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#{{addedc.course_id.cid}}eval-result">
+			{{addedc.course_id.course_id}}'s Evaluation Result for You</a>
+			</h5>
+			</div>
+			<div id="{{addedc.course_id.cid}}eval-result" class="panel-collapse collapse in">
+			<div class="panel-body">
+			<b>Predicted Grade:</b> <br/>
+			<b>Recommended courses to be taken in the same semester with  {{addedc.course_id.course_id}}:</b> <br/>
+			<b>Students often take {{addedc.course_id.course_id}} with:</b> <br/>
+			<b>How you can prepare for {{addedc.course_id.course_id}}:</b> <br/>
+			</div>
+			</div>
+			</div>
+		</div>
+		</td>
+<!-- evaluate course button -->
+		<td>
+		<span data-toggle="tooltip" data-placement="top" title="Evaluate">
+		<a href="#{{addedc.course_id.cid}}eval" id="btn" class="btn btn-default" role="button" data-toggle="collapse">
+		<span class="glyphicon glyphicon-eye-open"></span>
+		</a>
+		</span>
+		</td>
+<!-- add to planner button -->
+{% if addedc.course_id in planned_course_id %}
+		<td> 
+		<span id="{{addedc.course_id.cid}}addToPlannerSpan" data-toggle="tooltip" data-placement="top" title="In Planner">
+		<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span></button>
+		</span>
+		</td>
+{% else %}
+		<td> 
+		<span id="{{addedc.course_id.cid}}addToPlannerSpan" data-toggle="tooltip" data-placement="top" title="Add to Planner">
+		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#{{addedc.course_id.cid}}addToPlannerModal"><span id="{{addedc.course_id.cid}}glyphiconAddToPlanner" class="glyphicon glyphicon-share-alt"></span></button>
+		</span>
+
+<!-- Pop up Modal when addToPlanner is hit -->
+		<div class="modal fade" id="{{addedc.course_id.cid}}addToPlannerModal" role="dialog">
+		<div class="modal-dialog">
+
+<!-- user choose semester to before add the course to planner-->
+		<div class="modal-content">
+		<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h4 class="modal-title">Add {{addedc.course_id}} to your planner</h4>
+		</div>
+		<div class="modal-body">
+			<form id="{{addedc.course_id.cid}}addToPlanner_form"> 
+<!-- In the future, there should be a program to generate the semester this course would be offered -->
+			<div id="dropdown-sem">  Choose a Semester: 
+			<select>
+			<option>Fall 2016</option>
+			<option>Spring 2017</option>
+			<option>Summer 2017</option>
+			<option>Fall 2018</option>
+			</select>
+			</div>
+			<button id="addToPlanner" this-course-id="{{addedc.course_id.cid}}" type="submit" class="btn btn-success btn-sm">Submit</button>
+			
+			</form>
+
+		</div>
+		</div>
+
+		</div>
+		</div>
+
+		
+		</td>
+
+{% endif %}
+<!-- remove from folder button -->
+		<td>
+		<button id="remove" type="button" class="btn btn-danger" this-course-id="{{addedc.course_id.cid}}" data-toggle="tooltip" data-placement="top" title="Remove"/><span class="glyphicon glyphicon-remove"></span></button>
+		</td>
+		</tr>
+		</div>
+	</tbody>
+
+{% endfor %}
+
+{% endif %}
+<!-- Trigger the modal with a button -->
+  
+
+</div>
+{% endblock content %}
+
+{% block script %} 
+<script src="{% static 'js/folder.js' %}"></script> 
+{% endblock script %}
