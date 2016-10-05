@@ -118,7 +118,7 @@ def get_transcript(request):
 			'get_transcript_data.html',
 			{'enroll_form': enroll_form, 'current_user': request.user,})
 
-
+#Show student's transcript information. The taken courses are ordered by year/semester
 def transcript(request):
 	transcript_added = True
 	if request.user.is_authenticated:
@@ -159,6 +159,8 @@ def all_courses(request):
 		}
 	return render(request, 'all_courses.html', context)
 
+# This view will show the list of courses related to Computer Science,BS degree, the description of the courses and related topics. 
+# This view also indicates the courses that the user had already taken (if user is login).
 def cs_bscourses(request):
 	courses = get_list_or_404(csbs_course)
 	for c in courses:
@@ -204,7 +206,8 @@ def addToFolder(request):
 					courseToFolder = Interest(student= request.user, course_id = toAddCourse)
 					courseToFolder.save()
 		return HttpResponse(toAddCourse)
-
+	
+# This view shows list of courses that user added to folder. 
 def folder(request):
 	folder_empty = False
 	has_planned_course = False
@@ -257,6 +260,8 @@ def addToPlanner(request):
 				courseToPlanner.save()
 	return HttpResponse(toAddCourse)
 
+# This view shows taken courses and courses the student plan to take in the future. 
+# Note: This view hasn't implemented the deletion of planned courses. 
 def degreePlanner(request):
 	has_enrolled_course = False
 	has_planned_course = False
