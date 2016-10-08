@@ -1,2 +1,2 @@
-# summer2016-DegreePlanner
+# DegreePlanner
 will be updated
