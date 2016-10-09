@@ -16,16 +16,16 @@ This app currently allows:
 
 To run the app in your local machine:
 After cloning, in the directory that contains SummerResearch2016-DegreePlanner:
-- Activate virtual environment:
+- Activate virtual environment:<br/>
 source SummerResearch2016-DegreePlanner/bin/activate
 
-- Inside SummerResearch2016-DegreePlanner/StudentTools, activate the server:
+- Inside SummerResearch2016-DegreePlanner/StudentTools, activate the server: <br/>
 python manage.py runserver
-
-*** This app has not yet finished testing ***
 
 Video Demo:<br/>
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=5yHbVoNK8W0
 " target="_blank"><img src="http://img.youtube.com/vi/5yHbVoNK8W0/0.jpg"
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
+<br/>
+*** This app has not yet finished testing ***
