@@ -238,6 +238,7 @@ def removeFromFolder(request):
 	cid = None
 	if request.method == 'POST':
 		cid = request.POST['course_id']
+		print(cid)
 		if cid: 
 			toRemoveCourse = get_object_or_404(Interest, course_id = cid)
 			if toRemoveCourse:
