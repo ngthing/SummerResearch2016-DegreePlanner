@@ -1,6 +1,6 @@
 # DegreePlanner
 
-This Web App is developed as part of an NSF funded Research Project:
+This Web App is an in-process project. It was developed as part of an NSF funded Research Project:
 BIGDATA: IA: DKA: Collaborative Research: Learning Data Analytics: Providing Actionable Insights to Increase College Student Success,
 Link: https://nsf.gov/awardsearch/showAward?AWD_ID=1447489&HistoricalAwards=false
 
@@ -24,7 +24,7 @@ python manage.py runserver
 
 *** This app has not yet finished testing ***
 
-Video Demo:
+Video Demo:<br/>
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=5yHbVoNK8W0
 " target="_blank"><img src="http://img.youtube.com/vi/5yHbVoNK8W0/0.jpg"
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
