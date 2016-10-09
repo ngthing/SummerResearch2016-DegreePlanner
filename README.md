@@ -1,4 +1,4 @@
-# DegreePlanner
+# DegreePlannerWebApp
 
 This Web App is an in-process project. It was developed as part of an NSF funded Research Project:
 BIGDATA: IA: DKA: Collaborative Research: Learning Data Analytics: Providing Actionable Insights to Increase College Student Success,
@@ -15,11 +15,11 @@ This app currently allows:
 - Student can view his/her degree planner interface.
 
 To run the app in your local machine:
-After cloning, in the directory that contains SummerResearch2016-DegreePlanner:
+After cloning, in the directory that contains SummerResearch2016-DegreePlannerWebApp:
 - Activate virtual environment:<br/>
-source SummerResearch2016-DegreePlanner/bin/activate
+source SummerResearch2016-DegreePlannerWebApp/bin/activate
 
-- Inside SummerResearch2016-DegreePlanner/StudentTools, activate the server: <br/>
+- Inside SummerResearch2016-DegreePlannerWebApp/StudentTools, activate the server: <br/>
 python manage.py runserver
 
 Video Demo:<br/>
