@@ -23,4 +23,4 @@ source SummerResearch2016-DegreePlannerWebApp/bin/activate
 python manage.py runserver
 
 
-*** This app has not yet finished testing ***
+
