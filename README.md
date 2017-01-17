@@ -23,4 +23,4 @@ source SummerResearch2016-DegreePlannerWebApp/bin/activate
 python manage.py runserver
 
 
-
+![alt text](screenshots/00-sign-up.png "Sign up view")
