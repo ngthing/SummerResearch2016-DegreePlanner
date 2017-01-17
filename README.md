@@ -23,10 +23,16 @@ source SummerResearch2016-DegreePlannerWebApp/bin/activate
 python manage.py runserver
 
 
-![alt text](screenshots/00-sign-up.png "Sign up view" =100x20)
+![alt text](screenshots/00-sign-up.png "Sign up view")
 ![alt text](screenshots/01-input-enrollment-history.png "01-input-enrollment-history")
 ![alt text](screenshots/02-display-transcript-info.png "02-display-transcript-info")
 ![alt text](screenshots/03-view-degree-requirement.png "03-view-degree-requirement")
 ![alt text](screenshots/04-add-course-to-folder.png "04-add-course-to-folder")
 ![alt text](screenshots/05-view-folder.png "05-view-folder")
 ![alt text](screenshots/06-view-folder.png "06-view-folder")
+![alt text](screenshots/07-add-course-to-planner.png "07-add-course-to-planner")
+![alt text](screenshots/08-in-planner.png "08-in-planner")
+![alt text](screenshots/09-view-planner.png "09-view-planner")
+![alt text](screenshots/10-view-planner.png "10-view-planner")
+![alt text](screenshots/11-view-plannerr.png "11-view-planner")
+![alt text](screenshots/12-view-planner.png "12-view-plannerr")
