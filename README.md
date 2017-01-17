@@ -24,3 +24,9 @@ python manage.py runserver
 
 
 ![alt text](screenshots/00-sign-up.png "Sign up view")
+![alt text](screenshots/01-input-enrollment-history.png "01-input-enrollment-history")
+![alt text](screenshots/02-display-transcript-info.png "02-display-transcript-info")
+![alt text](screenshots/03-view-degree-requirement.png "03-view-degree-requirement")
+![alt text](screenshots/04-add-course-to-folder.png "04-add-course-to-folder")
+![alt text](screenshots/05-view-folder.png "05-view-folder")
+![alt text](screenshots/06-view-folder.png "06-view-folder")
