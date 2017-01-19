@@ -10,9 +10,9 @@ This app currently allows:
 - Student registers/logins.
 - Student creates a profile, including: pursued degree (currently supported Computer Science, BS degree), transcript data.
 - Student can see the remaining courses he/she needs to take to complete degree.
-- Student can add a course to his/her folder to evaluate, e.g. view predicted grade for the course (not yet supported), view related topics to the course.
+- Student can add a course to his/her folder to evaluate such as view predicted grade for the course, view related topics to the course (not yet supported).
 - After evaluating the course, student can add to his/her planner.
-- Student can view his/her degree planner interface.
+- Student can view his/her degree planner.
 
 To run the app in your local machine:
 After cloning, in the directory that contains SummerResearch2016-DegreePlannerWebApp:
